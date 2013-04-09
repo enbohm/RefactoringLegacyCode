@@ -5,6 +5,7 @@ import java.util.List;
 
 import se.enbohms.legacy.exception.UserNotLoggedInException;
 
+
 public class TripService_Original {
 
 	public List<Trip> getTripsByUser(User user) throws UserNotLoggedInException {
