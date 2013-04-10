@@ -11,7 +11,7 @@ import se.enbohms.legacy.user.User;
 
 public class TweetService_Original {
 
-	public List<Tweet> getTripsByUser(User user)
+	public List<Tweet> getTweetsByUser(User user)
 			throws UserNotLoggedInException {
 		List<Tweet> tweetList = new ArrayList<Tweet>();
 		User loggedUser = SessionService.getInstance().getLoggedUser();

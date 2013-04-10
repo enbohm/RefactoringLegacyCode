@@ -11,7 +11,7 @@ import se.enbohms.legacy.user.User;
 
 public class TweetService {
 	
-	public List<Tweet> getTripsByUser(User user) throws UserNotLoggedInException {
+	public List<Tweet> getTweetsByUser(User user) throws UserNotLoggedInException {
 		List<Tweet> tweetList = new ArrayList<Tweet>();
 		User loggedUser = SessionService.getInstance().getLoggedUser();
 		boolean isFriend = false;
