@@ -36,6 +36,10 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Eclipse files #
+######################
 .classpath
 .project
 .settings
+bin
