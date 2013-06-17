@@ -22,4 +22,8 @@ public class User {
 	public void addTweet(Tweet tweet) {
 		tweets.add(tweet);
 	}
+
+	public List<Tweet> getTweets() {
+		return tweets;
+	}
 }
