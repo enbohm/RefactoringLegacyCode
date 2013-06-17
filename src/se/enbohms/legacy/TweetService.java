@@ -1,7 +1,5 @@
 package se.enbohms.legacy;
 
-import static java.util.logging.Level.FINE;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -19,8 +17,7 @@ public class TweetService {
 	public List<Tweet> getTweetsByUser(User user)
 			throws UserNotLoggedInException {
 
-		if (Log.isLoggable(FINE))
-			Log.fine("Entering getTweetsByUser");
+		Log.fine("Entering getTweetsByUser");
 
 		List<Tweet> tweetList = new ArrayList<Tweet>();
 		User loggedUser = SessionService.getInstance().getLoggedUser();
