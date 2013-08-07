@@ -12,10 +12,12 @@ import se.enbohms.legacy.user.User;
 
 public class TweetService_Original {
 
+	private static Logger LOG = Logger.getLogger("default");
+
 	public List<Tweet> getTweetsByUser(User user)
 			throws UserNotLoggedInException {
 
-		Logger.getLogger("default").fine("Entering getTweetsByUser");
+		LOG.fine("Entering getTweetsByUser");
 
 		List<Tweet> tweetList = new ArrayList<Tweet>();
 		User loggedUser = SessionService.getInstance().getLoggedUser();
