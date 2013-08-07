@@ -9,7 +9,9 @@ import se.enbohms.legacy.tweet.Tweet;
 import se.enbohms.legacy.tweet.TweetDao;
 import se.enbohms.legacy.user.SessionService;
 import se.enbohms.legacy.user.User;
-
+/**
+ * The original code before refactoring
+ * /
 public class TweetService_Original {
 
 	private static Logger LOG = Logger.getLogger("default");
