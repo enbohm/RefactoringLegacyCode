@@ -1,41 +1,42 @@
 package se.enbohms.legacy;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.logging.Logger;
 
 import se.enbohms.legacy.exception.UserNotLoggedInException;
 import se.enbohms.legacy.tweet.Tweet;
-import se.enbohms.legacy.tweet.TweetDao;
-import se.enbohms.legacy.user.SessionService;
 import se.enbohms.legacy.user.User;
 
+/**
+ * The service after refactoring
+ * 
+ * @author Andreas Enbohm @enbohm
+ * 
+ */
 public class TweetService {
 
-	private static Logger LOG = Logger.getLogger("default");
+	private ITweetDao dao;
 
-	public List<Tweet> getTweetsByUser(User user)
+	public TweetService(ITweetDao dao) {
+		this.dao = dao;
+	}
+
+	@Logged
+	public List<Tweet> getTweetsByUser(User user, User loggedInUser)
 			throws UserNotLoggedInException {
 
-		LOG.fine("Entering getTweetsByUser");
+		validate(loggedInUser);
 
-		List<Tweet> tweetList = new ArrayList<Tweet>();
-		User loggedUser = SessionService.getInstance().getLoggedUser();
-		boolean isFriend = false;
+		return user.isFriendsWith(loggedInUser) ? dao.findTweetsBy(user)
+				: noTweets();
+	}
 
-		if (loggedUser != null) {
-			for (User friend : user.getFriends()) {
-				if (friend.equals(loggedUser)) {
-					isFriend = true;
-					break;
-				}
-			}
-			if (isFriend) {
-				tweetList = TweetDao.findTweetsByUser(user);
-			}
-			return tweetList;
+	private List<Tweet> noTweets() {
+		return Collections.emptyList();
+	}
 
-		} else {
+	private void validate(User user) throws UserNotLoggedInException {
+		if (user == null) {
 			throw new UserNotLoggedInException();
 		}
 	}

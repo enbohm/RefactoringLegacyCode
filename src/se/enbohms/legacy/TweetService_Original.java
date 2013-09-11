@@ -11,9 +11,9 @@ import se.enbohms.legacy.user.SessionService;
 import se.enbohms.legacy.user.User;
 
 /**
- * The original code before refactoring
+ * The original service before refactoring
  * 
- * @author aenbohm
+ * @author Andreas Enbohm @enbohm
  * 
  */
 public class TweetService_Original {

@@ -26,4 +26,8 @@ public class User {
 	public List<Tweet> getTweets() {
 		return tweets;
 	}
+
+	public boolean isFriendsWith(User anotherUser) {
+		return friends.contains(anotherUser);
+	}
 }
